@@ -22,10 +22,10 @@ tabell för login i tableplus
 | id              | username     | password     |
 
 ### Routes
- 2.1 - Login (get)
+ 2.1 - Login (get) - Sida där man kan logga in till sitt konto
 
- 2.2 - Signup (get post)
+ 2.2 - Signup (get post) - En sida som man kan skapa en användare i databasen på
 
- 2.3 - Index landing page (get)
- 
- 2.3.1 Mina sidor (extra get)
+ 2.3 - Index landing page (get) - "hem" sidan som du kan navigera till alla andra sidor till.
+
+ 2.3.1 Mina sidor (extra get) - En sida som visar username och information om användaren.
