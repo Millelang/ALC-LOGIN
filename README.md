@@ -23,6 +23,9 @@ tabell för login i tableplus
 
 ### Routes
  2.1 - Login (get)
+
  2.2 - Signup (get post)
+
  2.3 - Index landing page (get)
+ 
  2.3.1 Mina sidor (extra get)
