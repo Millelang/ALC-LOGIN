@@ -1,4 +1,20 @@
 {% extends "layout.njk" %}
+
 {% block content %}
-<form method="post" action=""></form>
+
+<main class = "wrapper"> 
+    <h1>Log in</h1>
+
+<form action="/" method="post">
+    <label for="username">username</label>
+    <input type="text" id="username" name="username" required>
+    <label for="">password</label>
+    <input type="text" id="password" name="password" required>
+  
+
+    <input type="submit" value="Log in"> </form>
+ 
+</form>
+</main>
+
 {% endblock %}
