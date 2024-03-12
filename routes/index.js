@@ -20,6 +20,33 @@ router.get('/hashTest', async function (req, res) {
   })
 })
 
+
+router.post('/login', async function (req, res) {
+
+  const username = req.body.username
+
+  const [userpassword] = await pool.promise().query(
+    'SELECT password FROM salam_login WHERE username = ?', [username]
+  )
+
+  const passwordenter = req.body.password
+ 
+    bcrypt.compare(passwordenter, userpassword[0].password, function(err, result) {
+      if(result){
+        res.json({message: 'Du är inloggad'})
+      } else {
+        res.json({message: 'Fel lösenord'})
+      }
+    });
+
+
+  
+
+  // const  password = req.body.password
+
+//SELECT * FROM salam_login WHERE id = 1
+})
+
 router.get('/login', function (req, res) {
   res.render('login.njk', { 
     title: 'Hej user',
