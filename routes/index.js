@@ -16,6 +16,7 @@ router.get('/', function (req, res) {
 router.get('/hashTest', async function (req, res) {
   bcrypt.hash('gligon123', 10, function(err, hash) {
     console.log(hash)
+    return res.json(hash);
   })
 })
 
