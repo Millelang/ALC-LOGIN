@@ -1,12 +1,21 @@
 const express = require('express')
 const router = express.Router()
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const pool = require('../db.js')
 
 router.get('/', function (req, res) {
   res.render('index.njk', { 
     title: 'Hej user',
     message: 'Välkommen'
+  })
+})
+
+router.get('/hashTest', async function (req, res) {
+  bcrypt.hash('gligon123', 10, function(err, hash) {
+    console.log(hash)
   })
 })
 
