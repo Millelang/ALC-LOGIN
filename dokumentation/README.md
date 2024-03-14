@@ -34,3 +34,4 @@ tabell för login i tableplus
 
  ### Dokumentaion
  4.2 klar bre
+ 4.3 Nyanserat och strukturerat css på login och index, fixade nav, filstruktur.
