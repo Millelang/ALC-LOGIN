@@ -29,3 +29,8 @@ tabell för login i tableplus
  2.3 - Index landing page (get) - "hem" sidan som du kan navigera till alla andra sidor till.
 
  2.3.1 Mina sidor (extra get) - En sida som visar username och information om användaren.
+
+
+
+ ### Dokumentaion
+ 4.2 klar bre
