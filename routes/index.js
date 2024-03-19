@@ -99,7 +99,7 @@ router.get('/minasidor', function (req, res) {
 
 })
 
-/*router.get('/logout', function (req, res) {
+router.get('/logout', function (req, res) {
   req.session.destroy(function(err) {
     if(err) {
       console.log(err);
@@ -108,7 +108,7 @@ router.get('/minasidor', function (req, res) {
     }
   });
 });
-*/
+
 
 router.get('/test', async function (req, res) {
 

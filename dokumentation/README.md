@@ -35,3 +35,4 @@ tabell för login i tableplus
  ### Dokumentaion
  4.2 klar bre
  4.3 Nyanserat och strukturerat css på login och index, fixade nav, filstruktur.
+ 4.4 Det som har utförts idag är logout, signup och så att nav anpassar sig beroende på om du är inloggad eller inte. Hemliga sidan syns bara om man är inloggad, och ifall man inte är inloggad så blir man redirected till logn sidan.
