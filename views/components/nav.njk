@@ -1,11 +1,11 @@
 <div class="navbar">
     <a href="/">Hem</a>
     <a href="/minasidor">Mina sidor</a>
-    { % if username % }
+    {% if username %}
     <a href="/login">Logga ut</a>
-    { % else % }
+    {% else %}
     <a href="/login">Logga in</a>
-    {% endif %}
+    {% endif %} 
     <a href="/signup">Registrera</a>
 </div>
 

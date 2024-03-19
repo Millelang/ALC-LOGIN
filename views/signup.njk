@@ -1,0 +1,21 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+<main class = "wrapper"> 
+    <h1>Registrera</h1>
+<div class="login">
+<form action="/signup" method="post">
+    <label for="username">Välj ditt användarnamn</label>
+    <input type="text" id="username" name="username" required>
+    <label for="">Välj ditt lösenord</label>
+    <input type="text" id="password" name="password" required>
+  
+
+    <input type="submit" value="Registrera"> </form>
+ 
+</form>
+</div>
+</main>
+
+{% endblock %}
