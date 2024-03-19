@@ -99,6 +99,17 @@ router.get('/minasidor', function (req, res) {
 
 })
 
+/*router.get('/logout', function (req, res) {
+  req.session.destroy(function(err) {
+    if(err) {
+      console.log(err);
+    } else {
+      res.redirect('/');
+    }
+  });
+});
+*/
+
 router.get('/test', async function (req, res) {
 
   const [result] = await pool.promise().query(
