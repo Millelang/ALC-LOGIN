@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { body ,matchedData , validationResult } = require('express-validator')
+const { body, matchedData, validationResult } = require('express-validator')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
@@ -25,11 +25,17 @@ router.get('/hashTest', async function (req, res) {
 router.post('/signup', async function (req, res) {
   const username = req.body.username
   const password = req.body.password
-  
-  bcrypt.hash(password, 10, function (err, hash) {
-    encrypted = hash
-    return encrypted
-})
+
+  bcrypt.hash(password, 10, async function (err, hash) {
+    try {
+      const [user] = await pool.promise().query('INSERT INTO `salam_login` ( `username`, `password`) VALUES( ?, ?)', [username, hash])
+      res.redirect('/login')
+    } catch (error) {
+      console.log(error)
+      res.status(402)
+    }
+  })
+
 
 
 })
