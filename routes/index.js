@@ -44,13 +44,15 @@ router.post('/login', async function (req, res) {
 
   const username = req.body.username
 
-  const [userpassword] = await pool.promise().query(
-    'SELECT password FROM salam_login WHERE username = ?', [username]
+  const [user] = await pool.promise().query(
+    'SELECT id, password FROM salam_login WHERE username = ?', [username]
   )
 
+
+  req.session.userid = user[0].id
   const passwordenter = req.body.password
 
-  bcrypt.compare(passwordenter, userpassword[0].password, function (err, result) {
+  bcrypt.compare(passwordenter, user[0].password, function (err, result) {
     req.session.username = username
     // req.session.login = false
     if (result) {
@@ -100,8 +102,8 @@ router.get('/minasidor', function (req, res) {
 })
 
 router.get('/logout', function (req, res) {
-  req.session.destroy(function(err) {
-    if(err) {
+  req.session.destroy(function (err) {
+    if (err) {
       console.log(err);
     } else {
       res.redirect('/');
@@ -117,6 +119,41 @@ router.get('/test', async function (req, res) {
   )
 
   res.json(result)
+})
+
+
+router.get('/meows', async function (req, res) {
+  const [result] = await pool.promise().query(
+    `SELECT * FROM salam_meows `,
+  )
+
+  res.render('meows.njk', {
+    meows: result
+  
+  })
+})
+
+router.get('/saymeow', async function (req, res) {
+  if (req.session.login) {
+    res.render('saymeow.njk', {
+
+    })
+  } else {
+    res.redirect('/login')
+  }
+
+})
+
+router.post('/saymeow', async function (req, res) {
+  const text = req.body.textarea
+  const id = req.session.userid
+
+  const [result] = await pool.promise().query(
+    `INSERT INTO salam_meows (content, user_id) VALUES (?, ?)`, [text, id]
+  )
+
+
+  res.redirect('/meows')
 })
 
 module.exports = router
