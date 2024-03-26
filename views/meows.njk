@@ -4,12 +4,16 @@
 <main class="wrapper">
     <div class="card">
         <h1>Meows</h1>
-{% for meow in meows %}
-<li>
-    <p> {{ meow.content }} </p>
-</li>
 
-{% endfor %}
-</div>
+        {% for meow in meows %}
+        <ul>
+            <li>
+                <h2> {{ meow.username }} </h2>
+                <p> {{ meow.content }} </p>
+            </li>
+        </ul>
+
+        {% endfor %}
+    </div>
 </main>
 {% endblock %}

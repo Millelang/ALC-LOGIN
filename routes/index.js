@@ -124,19 +124,22 @@ router.get('/test', async function (req, res) {
 
 router.get('/meows', async function (req, res) {
   const [result] = await pool.promise().query(
-    `SELECT * FROM salam_meows `,
+    `SELECT * FROM salam_meows JOIN salam_login ON salam_login.id = salam_meows.user_id`,
   )
 
   res.render('meows.njk', {
-    meows: result
+    meows: result,
+      username: req.session.username,
   
   })
+
+
 })
 
 router.get('/saymeow', async function (req, res) {
   if (req.session.login) {
     res.render('saymeow.njk', {
-
+      username: req.session.username,
     })
   } else {
     res.redirect('/login')
@@ -154,6 +157,15 @@ router.post('/saymeow', async function (req, res) {
 
 
   res.redirect('/meows')
+})
+
+router.get('/profile', async function (req, res) {
+  const [result] = await pool.promise().query(
+    `SELECT * FROM salam_login WHERE id = 1`, )
+
+ res.json (result)
+
+
 })
 
 module.exports = router
